@@ -4,7 +4,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
+import java.time.Duration;
 import java.util.List;
 public class ElementsHelper {
     WebDriver driver;
@@ -14,7 +19,7 @@ public class ElementsHelper {
         this.js = (JavascriptExecutor) driver;
     }
     public void scrollDown() {
-        js.executeScript("window.scrollBy(0,160)");
+        js.executeScript("window.scrollBy(0,250)");
     }
     public void scrollUp() {
         js.executeScript("window.scrollBy(160,0)");
@@ -33,7 +38,7 @@ public class ElementsHelper {
         element.sendKeys(key);
     }
     public void uploadFileToElement(WebElement element){
-        String pictureFilePath = "src/test/resources/Screenshot1.png";
+        String pictureFilePath = "src/test/resources/screenshot1.png";
         File file = new File (pictureFilePath);
         element.sendKeys(file.getAbsolutePath());
     }
@@ -44,5 +49,13 @@ public class ElementsHelper {
                 break;
             }
         }
+    }
+    public void keyboardEnters(WebElement element ,Keys keys){
+       element.sendKeys(keys);
+    }
+
+    public void waitForElement(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

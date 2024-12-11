@@ -110,18 +110,18 @@ public class WebTableTest extends BaseTest{
 //        System.out.println("Persoanele din tabel sunt " + numarInitial.size());
     // }
     //Facem o metoda prin care luam marimea initiala a tabelului
-    public int getInitialTableSize(){
-        List<WebElement>tableElements = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']"));
-        initialTableSize = tableElements.size();
-        System.out.println("Numar persoane in tabel " +initialTableSize);
-        return initialTableSize;
-    }
-    //Facem o metoda prin care validam adaugarea unei lini noi in tabel
-    public void newRecordTabel(){
-        List<WebElement> newRow = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']"));
-        int actualTableSize = newRow.size();
-        int expectedTableSize = initialTableSize +1;
-        Assert.assertEquals(actualTableSize, expectedTableSize, "Actual table size " +actualTableSize + " is different than " + expectedTableSize);
-        System.out.println("Initial table size was: " +initialTableSize + " but after is " +expectedTableSize);
-    }
+//    public int getInitialTableSize(){
+//        List<WebElement>tableElements = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']"));
+//        initialTableSize = tableElements.size();
+//        System.out.println("Numar persoane in tabel " +initialTableSize);
+//        return initialTableSize;
+//    }
+//    Facem o metoda prin care validam adaugarea unei lini noi in tabel
+//  public void newRecordTabel(){
+// ]       List<WebElement> newRow = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']"));
+//        int actualTableSize = newRow.size();
+//        int expectedTableSize = initialTableSize +1;
+//        Assert.assertEquals(actualTableSize, expectedTableSize, "Actual table size " +actualTableSize + " is different than " + expectedTableSize);
+//        System.out.println("Initial table size was: " +initialTableSize + " but after is " +expectedTableSize);
+//    }
 }
